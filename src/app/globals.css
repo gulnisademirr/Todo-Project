@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;700;900&family=Urbanist:wght@300;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: 'Lexend Deca', sans-serif;*/
+    font-family: 'Urbanist', sans-serif;
+   
+
+}
+
+/*// thapa technical SUBSCRIBE*/
+
+html{
+    font-size: 62.5%;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+   
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: 10rem;
+  
+  
+    
+} 
+.container {
+    position: relative;
+    height: 100vh;
+ 
+  
+  }
+  main h2{
+    font-size: 3rem;
+    font-family: 'Lexend Deca', sans-serif;
+    margin-bottom: 4.8rem;
+    
+}
+  .addForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60rem;
+    height:30rem;
+    padding: 20px;
+    border: 2px solid rgb(196, 196, 196);
+    box-shadow: 53px 37px 18px 6px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-radius: 2rem;
+    background: #ffffff;
+   
+    
+  }
+ 
+   .addForm h2{
+    font-size: 2.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 4.8rem;
+    margin:10px 10px;
+    
+}  
+button{
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #676767;
+    color: #ececec;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    
+  }
+
+  .buttonNew{
+
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 15px;
+    margin-top: 10px;
+    background-color: #454545;
+    color: #ececec;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+.addForm button{
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 15px;
+    margin-top: 10px;
+    background-color: #454545;
+    color: #fff;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    cursor: pointer;
+  }
+  .addForm input{
+    border: .1rem solid #8d8d8d;
+    border-radius: 1rem;
+    width: 55rem;
+    height: 6rem;
+    margin: 1rem 0;
+     /* user-focus: none;  */
+    padding: .6rem 1rem;
+    font-size: 1.6rem;
+    letter-spacing: .06rem;
+    font-weight: bold;
+  }
+  .addForm textarea{
+    border: .1rem solid #8d8d8d;
+    border-radius: 1rem;
+    width: 55rem;
+    height: 12rem;
+    margin: 1rem 0;
+     /* user-focus: none;  */
+    padding: .6rem 1rem;
+    font-size: 1.6rem;
+    letter-spacing: .06rem;
+    font-weight: bold;
+  }
+main h2 .icons{
+    color: #585958;
+}
+
+.icons{
+color: #fcfcfc;
+height: 3rem;
+width: 3rem;
+justify-content: center;
+}
+
+/*===================*/
+/*navbar styling */
+/*====================*/
+
+nav{
+    width:120rem ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .3rem solid #9f9a9a;
+}
+
+nav a,select{
+    font-size: 2rem;
+    font-family: 'Lexend Deca', sans-serif;
+    color: #989393;
+    border-bottom: .3rem solid transparent;
+}
+
+nav a:hover{
+    border-color: #3A3845;
+}
+
+nav a.active {
+    color: #000;
+    border-color: #68B984;
+}
+
+/*===================*/
+/*Form  styling */
+/*====================*/
+.card-container {
+    border: 1px solid #aaaaaa;
+    padding: 10px;
+  }
+  
+  /* Style for each card */
+  .card {
+    /* flex-basis: calc(50% - 20px); 
+    margin: 10px; 
+    border: 1px solid #ccc;
+    padding: 10px; */
+
+    flex-basis: 48%; 
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    
+   
+  }
+
+  /* New todo button */
+
+
+  button:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+form input{
+    border: .1rem solid #ccc;
+    border-radius: .3rem;
+    width: 45rem;
+    margin: 4rem 0;
+     /* user-focus: none;  */
+    padding: .6rem 1rem;
+    font-size: 1.6rem;
+    letter-spacing: .06rem;
+    font-weight: bold;
+}
+
+form button{
+    padding: .8rem 2.8rem;
+    border: none;
+    border-radius: .3rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 2.4rem;
+     background-color: #68B984;
+     color: #fff;
+     
+}
+
+label{
+    font-size: 1.5rem;
+    letter-spacing: .06rem;
+    color: #3A3845;
+    font-weight: bold;
+
+   
+    
+}
+
+/*===================*/
+/*todo task list */
+/*====================*/
+ .main-task li{
+    margin: 0rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    align-items: center;
+    width: 90%;
+    min-height: 6rem;
+    border-bottom: .1rem solid #544f4f;
+    
+    
+}
+
+.main-task li:first-child{
+    border-top: 5rem solid #706969;
+    
+}
+
+.main-task li:hover{
+    background-color: #edebeb;
+}
+
+.main-task li input[type="checkbox"]:checked  + label {
+    text-decoration: line-through;
+    color: #D14D72;
+}
+
+.main-task li button{
+    padding: .6rem 1rem;
+    width: 8rem;
+    background-color: #eae6e6;
+    color: #0e0e0e;
+    
+    display: inline-block;
+    cursor: pointer;
+    justify-self: end;
+    letter-spacing: .1rem;
+    margin: 5px;
+    border: 1px;
+    outline:2px solid #4f4f4f;
+} 
+.main-task {
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* İki sütun oluşturacak şekilde değiştirildi */
+    gap: 1rem; /* Sütunlar arasında 1 rem boşluk bırakır */
+    width: 90%; /* Sütunlar yüzdeye ayarlandı */
+    margin-top: 10rem;
+    
+  }
+ 
