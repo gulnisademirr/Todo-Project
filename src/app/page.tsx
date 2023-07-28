@@ -9,7 +9,7 @@ import AddTodo from "./components/add-todo/page";
 import Navbar from "./components/navbar/page";
 // import EditTodo from "./components/edit-todo/page"
 import Todos from "./components/todos/page"
-
+import Pagination from "./components/pagination/page"
 import "./globals.css";
 import { RiTodoLine } from "react-icons/ri";
 // thapa technical SUBSCRIBE
@@ -22,6 +22,10 @@ const Page = () => {
           <Navbar />
           {/* <AddTodo /> */}
           <Todos />
+       
+            <Pagination/>
+          
+          
           
       </main>
    

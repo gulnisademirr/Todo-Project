@@ -3,14 +3,14 @@ import { FormEvent, useState } from "react";
 // import {useTodos} from "@/store/todos";
 import { useTodos } from "../context/todos/page";
 import Link from "next/link";
-import router from "next/router";
+import { useRouter } from 'next/navigation'
 
 
 const AddTodo = () => {
   const [todo, setTodo] = useState("");
 
   const { handleAddTodo } = useTodos();
-  // const router = useRouter();
+  const router = useRouter();
 
   // thapa technical SUBSCRIBE
 
@@ -18,7 +18,7 @@ const AddTodo = () => {
     e.preventDefault();
     handleAddTodo(todo); // to add the data in an array
     setTodo("");
-    // router.push("/"); //BU KISIM ÇALIŞMIYOR
+    router.push("/"); //BU KISIM ÇALIŞMIYOR
   
   }
 

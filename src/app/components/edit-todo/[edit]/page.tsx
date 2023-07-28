@@ -14,13 +14,20 @@ const EditTodo = ({ todo }: EditTodoProps) => {
   const [editedTask, setEditedTask] = useState<string>(todo ? todo.task : "");
   const todoId = todo?.id;
 
+// useEffect(() => {
+//     const queryParams = new URLSearchParams(window.location.search);
+//     const task = queryParams.get("task");
+//     if (task) {
+//       setEditedTask(decodeURIComponent(task));
+//     }
+//   }, []);
 useEffect(() => {
-    const queryParams = new URLSearchParams(window.location.search);
-    const task = queryParams.get("task");
-    if (task) {
-      setEditedTask(decodeURIComponent(task));
-    }
-  }, []);
+  const queryParams = new URLSearchParams(window.location.search);
+  const task = queryParams.get("task");
+  if (task) {
+    setEditedTask(decodeURIComponent(task));
+  }
+}, [todo]);//////////////////////////////DEĞİŞTİ
   
   const router = useRouter();
  
@@ -28,22 +35,21 @@ useEffect(() => {
   const handleEditFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-
-  
-    // router.push("/");
-    // Güncellemeyi yap
+ // Güncellemeyi yap
     if (editedTask.trim() !== "" && todoId) {
       handleEditTodo(todoId, editedTask);
 
-      // Yönlendirme işlemini gerçekleştir
+      // Yönlendirme işlemini
       // window.location.href = "/";
       router.push("/");
       
     }
-  };
+    
+  }; 
+   
 
   const handleEditCancel = () => {
-    // Yönlendirme işlemini gerçekleştir
+    // Yönlendirme işlemi
     // window.location.href = "/";
     router.push("/");
   };

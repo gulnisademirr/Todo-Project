@@ -184,7 +184,7 @@ nav a.active {
 /*Form  styling */
 /*====================*/
 .card-container {
-    border: 1px solid #aaaaaa;
+    border: 3px solid #aaaaaa;
     padding: 10px;
   }
   
@@ -252,8 +252,8 @@ label{
     align-items: center;
     width: 90%;
     min-height: 6rem;
-    border-bottom: .1rem solid #544f4f;
-    
+    /* border-bottom: .1rem solid #544f4f;
+     */
     
 }
 
@@ -271,7 +271,7 @@ label{
     color: #D14D72;
 }
 
-.main-task li button{
+/* .main-task li button{
     padding: .6rem 1rem;
     width: 8rem;
     background-color: #eae6e6;
@@ -284,7 +284,7 @@ label{
     margin: 5px;
     border: 1px;
     outline:2px solid #4f4f4f;
-} 
+}  */
 .main-task {
     
     display: grid;
@@ -294,4 +294,34 @@ label{
     margin-top: 10rem;
     
   }
- 
+ /* pagination */
+ .pagination {
+	position: absolute;
+	margin: -11rem ;
+  display: flex;  
+  bottom: 1rem;
+}
+
+.pagination button{
+	background: #e3e3e3;
+  border: #2d3e52 solid 2px;
+  color: #2d3e52;
+  font-size: medium;
+  width: 4.5rem;
+  height: 3.5rem;
+  margin: 2px;
+  
+}
+.showing{
+	
+  border: #2d3e52 solid 1px;
+  color: #2d3e52;
+  font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+ font-style: italic;
+ padding: 2px 2px;
+ position: absolute;
+    bottom: -9rem;
+    left: 9rem;
+}
+
