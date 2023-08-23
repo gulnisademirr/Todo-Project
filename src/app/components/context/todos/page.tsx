@@ -1,3 +1,4 @@
+
 "use client";
 
 import { createContext, ReactNode, useContext, useState } from "react";
@@ -28,17 +29,21 @@ export type TodosContext = {
   sortOption: SortOption;
   setSortOption: (option: SortOption) => void;
 
-  // Pagination ile ilgili değişkenler
+
+ 
   currentPage: number;
-  todosPerPage: number;
-  totalTodos: number;
   totalPages: number;
+  changePage: (page: number) => void;
   goToPage: (page: number) => void;
+
+
+
 };
 
 export const todosContext = createContext<TodosContext | null>(null);
 
 export function TodosProvider({ children }: { children: ReactNode }) {
+  
   const [todos, setTodos] = useState<Todo[]>(() => {
     try {
       const newTodos = localStorage.getItem("todos") || "[]";
@@ -47,28 +52,18 @@ export function TodosProvider({ children }: { children: ReactNode }) {
       return [];
     }
   });
-  //Pagination
 
-  // Diğer state ve fonksiyonları tanımladıktan sonra sayfalama için gerekli olan state ve fonksiyonlar
-  const [currentPage, setCurrentPage] = useState(1);
-  const todosPerPage = 6; // Her sayfada kaç todo gösterileceği
+/////
+  const [sortOption, setSortOption] = useState<SortOption>("newest");
 
-  // Toplam todo sayısını almak için todos'un uzunluğu
-  const totalTodos = todos.length;
 
-  // Toplam sayfa sayısı
-  const totalPages = Math.ceil(totalTodos / todosPerPage);
-
+  const [currentPage, setCurrentPage] = useState(1); // Sayfa numarası state'i
+  const todosPerPage = 6;
   // Seçili sayfa
   const goToPage = (page: number) => {
     setCurrentPage(page);
   };
-  // Şu anki sayfaya göre gösterilecek todos listesi
-  const indexOfLastTodo = currentPage * todosPerPage;
-  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-  const currentTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
-
-  const [sortOption, setSortOption] = useState<SortOption>("newest");
+////
   // Sorting logic based on the selected sortOption
   const sortedTodos = todos.slice().sort((a, b) => {
     if (sortOption === "newest") {
@@ -82,6 +77,14 @@ export function TodosProvider({ children }: { children: ReactNode }) {
     }
     return 0;
   });
+////////
+  const totalPages = Math.ceil(sortedTodos.length / todosPerPage);
+
+  function changePage(newPage: number) {
+    setCurrentPage(newPage);
+  }
+
+ 
 
   function handleAddTodo(task: string) {
     setTodos((prev) => {
@@ -131,21 +134,31 @@ export function TodosProvider({ children }: { children: ReactNode }) {
     setTodos((prev) => {
       const newTodos = prev.map((task) => {
         if (task.id === id) {
-          return { ...task, task: updatedTask, updatedAt: new Date() }; // Yapılan düzenlemeye göre metni güncelle
+          return { ...task, task: updatedTask, updatedAt: new Date() }; 
         }
         return task;
       });
       localStorage.setItem("todos", JSON.stringify(newTodos));
       return newTodos;
     });
+    
   }
-
+ function getPaginatedTodos() {
+    const startIndex = (currentPage - 1) * todosPerPage;
+    const endIndex = startIndex + todosPerPage;
+    return sortedTodos.slice(startIndex, endIndex);
+  }///////
+  
   return (
     // @ts-ignore
-    <todosContext.Provider value={{todos: currentTodos,
-        // todos: currentTodos,
-        // todos: [sortedTodos,currentTodos], // şeklinde yazılmalı.
-        // todos: sortedTodos,
+    <todosContext.Provider value={{todos: getPaginatedTodos(),
+      // todos:sortedTodos,
+      // sortedTodos: sortedTodos,
+      // currentTodos: sortedTodos,
+      // sortedTodos: currentTodos,
+    
+      // {sortedTodos,currentTodos},
+      // todos:sortedTodos,
         handleAddTodo,
         toggleTodoAsCompleted,
         handleDeleteTodo,
@@ -153,9 +166,8 @@ export function TodosProvider({ children }: { children: ReactNode }) {
         sortOption,
         setSortOption,
         currentPage,
-        todosPerPage,
-        totalTodos,
         totalPages,
+        changePage,
         goToPage,
       }}
     >
@@ -166,9 +178,13 @@ export function TodosProvider({ children }: { children: ReactNode }) {
 
 export function useTodos() {
   const todosContextValue = useContext(todosContext);
+  
+  // const todos = todosContextValue.todos
+  // const {sortedTodos,currentTodos} = todos;
   if (!todosContextValue) {
     throw new Error("useTodos used outside of Provider");
   }
-
   return todosContextValue;
+
 }
+  
